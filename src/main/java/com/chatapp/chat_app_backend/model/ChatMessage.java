@@ -1,14 +1,7 @@
 //This 'ChatMessage.java' class is for WEBSOCKET COMMUNICATION (sending/receiving messages in real-time).Purpose:Data transfer over network.(No database stuff)
 package com.chatapp.chat_app_backend.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-
-@Data
-@Builder
 public class ChatMessage {
 
     private String sender;                         
@@ -42,6 +35,16 @@ public class ChatMessage {
         this.timestamp = timestamp;
     }
 
+    public ChatMessage(String sender, String receiver, String content, MessageType type, String timestamp, boolean isTyping, boolean read) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.content = content;
+        this.type = type;
+        this.timestamp = timestamp;
+        this.isTyping = isTyping;
+        this.read = read;
+    }
+
     // Getters
     public String getSender() {
         return sender;
@@ -59,6 +62,14 @@ public class ChatMessage {
         return timestamp;
     }
 
+    public boolean isTyping(){
+        return isTyping;
+    }
+
+    public boolean isRead(){
+        return read;
+    }
+
     // Setters
     public void setSender(String sender) {
         this.sender = sender;
@@ -74,5 +85,13 @@ public class ChatMessage {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public void setTyping(boolean isTyping){
+        this.isTyping = isTyping;
+    }
+
+    public void setRead(boolean read){
+        this.read = read;
     }
 }
