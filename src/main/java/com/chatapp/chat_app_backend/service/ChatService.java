@@ -47,7 +47,7 @@ public class ChatService {
     public List<ChatMessage> getPrivateConversation(String user1, String user2) {               
         return chatMessageRepository.findConversationBetweenUsers(user1, user2)
                 .stream()
-                .map(ChatMessageEntity::toChatMessage)
+                .map(entity->entity.toChatMessage())
                 .collect(Collectors.toList());
     }
 
