@@ -27,7 +27,8 @@ public class ChatService {
         return chatMessageRepository.save(entity);
     }
 
-    public List<ChatMessage> getChatHistory(){                     
+    public List<ChatMessage> getChatHistory(){     
+        return chatMessageRepository.findAllByOrderByCreatedAtAsc()                
                 .stream()
                 .map(entity->entity.toChatMessage())
                 .collect(Collectors.toList());
