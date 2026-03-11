@@ -29,7 +29,7 @@ public class ChatService {
 
     public List<ChatMessage> getChatHistory(){                     
                 .stream()
-                .map(ChatMessageEntity::toChatMessage)
+                .map(entity->entity.toChatMessage())
                 .collect(Collectors.toList());
     }
 
