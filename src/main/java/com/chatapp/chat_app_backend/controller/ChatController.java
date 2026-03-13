@@ -130,6 +130,11 @@ public class ChatController {
         return chatService.getChatHistory();
     }
 
+    @GetMapping("/health")
+public ResponseEntity<String> health() {
+    return ResponseEntity.ok("UP");
+}
+
 }
 
 
